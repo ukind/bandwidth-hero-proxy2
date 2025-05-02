@@ -5,7 +5,3 @@
     from = "/api/*"
     to = "/.netlify/functions/:splat"
     status = 200
-
-[build]
-  command = "npm install --platform=linux --arch=x64 sharp && npm run build"
-  publish = "build"
