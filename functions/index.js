@@ -7,7 +7,7 @@ exports.handler = async (e, t) => {
   let { url: r } = e.queryStringParameters,
     { jpeg: s, bw: o, l: a } = e.queryStringParameters;
   if (!r)
-    return { statusCode: 200, body: "Bandwidth Hero Data Compression Service" };
+    return { statusCode: 200, body: "bandwidth-hero-proxy" };
   try {
     r = JSON.parse(r);
   } catch {}
