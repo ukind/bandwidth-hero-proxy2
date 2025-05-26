@@ -10,6 +10,6 @@
   "dependencies": {
     "jest": "^27.4.5",
     "node-fetch": "^2.7.0",
-    "sharp": "^0.34.1"
+    "sharp": "^0.34.2"
   }
 }
