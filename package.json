@@ -8,7 +8,7 @@
     "test": "jest tests/index.test.js"
   },
   "dependencies": {
-    "jest": "^27.4.5",
+    "jest": "^30.0.2",
     "node-fetch": "^2.7.0",
     "sharp": "^0.34.1"
   }
