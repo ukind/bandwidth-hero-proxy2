@@ -16,15 +16,27 @@ It downloads original image and transforms it with [Sharp](https://github.com/lo
 
 ## Deployment
 
-You need to deploy the functions to Netlify:
+You can deploy this service to [Vercel](https://vercel.com/) in just a few steps:
 
-[![Deploy](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/ukind/bandwidth-hero-proxy2)
+1. Fork or clone this repository.
+2. Create a new Vercel project and select this repository as the source.
+3. Accept the defaults for the build configuration. Vercel will automatically detect the serverless function located at `api/index.js`.
+4. Deploy the project. Your instance will be available at `https://your-vercel-project.vercel.app/`.
 
-Then, in the **Data Compression Service** in Bandwidth Hero extension, add `https://your-netlify-domain.netlify.app/api/index`, and you are good to go.
+Then, in the **Data Compression Service** field inside the Bandwidth Hero extension, set the endpoint to `https://your-vercel-project.vercel.app/api/index`, and you are good to go.
+
+For local development you can run:
+
+```bash
+npm install
+npm run start
+```
+
+This uses `vercel dev` under the hood to emulate the production environment locally.
 
 <!-- READ THIS ARTICLE LATER AdityaG
 Check out [this guide](https://www.digitalocean.com/community/tutorials/how-to-set-up-a-node-js-application-for-production-on-ubuntu-16-04)
-on how to setup Node.js on Ubuntu. 
+on how to setup Node.js on Ubuntu.
 DigitalOcean also provides an
 [easy way](https://www.digitalocean.com/products/one-click-apps/node-js/) to setup a server ready to
 host Node.js apps.
