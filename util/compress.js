@@ -4,9 +4,25 @@ const sharp = require("sharp");
 function compress(imagePath, useWebp, grayscale, quality, originalSize) {
   let format = useWebp ? "webp" : "jpeg";
 
-  return sharp(imagePath)
+  // Enable animated support for GIFs - load all frames
+  const sharpOptions = { animated: true, pages: -1 };
+  
+  const formatOptions = useWebp
+    ? {
+        quality,
+        loop: 0,        // Loop forever
+        effort: 4,      // Encoding effort (0-6)
+        lossless: false,
+      }
+    : {
+        quality,
+        progressive: true,
+        optimizeScans: true,
+      };
+
+  return sharp(imagePath, sharpOptions)
     .grayscale(grayscale)
-    .toFormat(format, { quality, progressive: true, optimizeScans: true })
+    .toFormat(format, formatOptions)
     .toBuffer({ resolveWithObject: true })
     .then(({ data, info }) => ({
       err: null,
