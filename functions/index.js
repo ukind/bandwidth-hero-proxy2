@@ -20,10 +20,8 @@ exports.handler = async (e, t) => {
     let h = {},
       { data: c, type: l } = await fetch(r, {
         headers: {
-          ...pick(e.headers, ["cookie", "dnt", "referer"]),
-          "user-agent": "Bandwidth-Hero Compressor",
+          ...pick(e.headers, ["cookie", "dnt", "referer", "user-agent", "accept", "accept-language", "accept-encoding"]),
           "x-forwarded-for": e.headers["x-forwarded-for"] || e.ip,
-          via: "1.1 bandwidth-hero",
         },
       }).then(async (e) =>
         e.ok

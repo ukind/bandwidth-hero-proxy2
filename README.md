@@ -14,6 +14,10 @@ It downloads original image and transforms it with [Sharp](https://github.com/lo
 
 > Note: It downloads images on user's behalf (By passing in same headers to the domain with required image), passing cookies and user's IP address through to the origin host.
 
+## Cloudflare Compatibility
+
+This proxy forwards browser headers (User-Agent, Accept, Accept-Language, Accept-Encoding, Cookie, DNT, Referer) to make requests appear like legitimate browser requests. This helps avoid being blocked by Cloudflare CAPTCHA challenges that commonly trigger on bot-like requests.
+
 ## Deployment
 
 You need to deploy the functions to Netlify:
