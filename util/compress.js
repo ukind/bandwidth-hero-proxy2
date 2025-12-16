@@ -6,7 +6,12 @@ function compress(imagePath, useWebp, grayscale, quality, originalSize) {
 
   return sharp(imagePath)
     .grayscale(grayscale)
-    .toFormat(format, { quality, progressive: true, optimizeScans: true })
+    .toFormat(format, {
+      quality,
+      progressive: true,
+      optimizeScans: true,
+      ...(useWebp ? {} : { mozjpeg: true }),
+    })
     .toBuffer({ resolveWithObject: true })
     .then(({ data, info }) => ({
       err: null,
